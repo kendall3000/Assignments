@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/kendallramos/Operating_Systems/yjk504-final-q2",
+      "program": "/Users/kendallramos/Operating_Systems/yjk504-final-q2/build/Debug/outDebug"
+    }
+  ]
+}

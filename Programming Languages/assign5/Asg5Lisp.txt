@@ -1,0 +1,48 @@
+; Asg5Lisp.txt
+
+; Function to remove NIL at the top level
+(defun removeNILTop (lst)
+  (remove-if #'(lambda (x) (eql x 'NIL)) lst))
+
+; Function to remove NIL at any level
+(defun removeNILMost (lst)
+  (if (null lst)
+      nil
+      (if (atom (car lst))
+          (if (eql (car lst) 'NIL)
+              (removeNILMost (cdr lst))
+              (cons (car lst) (removeNILMost (cdr lst))))
+          (cons (removeNILMost (car lst)) (removeNILMost (cdr lst))))))
+
+; Function to reverse the top-level entries
+(defun reverseTop (lst)
+  (if (null lst)
+      nil
+      (append (reverseTop (cdr lst)) (list (car lst)))))
+
+; Function to reverse the list at all levels
+(defun reverseAll (lst)
+  (if (null lst)
+      nil
+      (if (atom (car lst))
+          (cons (car lst) (reverseAll (cdr lst)))
+          (cons (reverseAll (car lst)) (reverseAll (cdr lst))))))
+
+; Function to check if a list is a palindrome at the top level
+(defun palindrome (lst)
+  (equal lst (reverseTop lst)))
+
+; Function to remove NIL at all levels, including the single outermost
+(defun removeNILAll (lst)
+  (if (null lst)
+      nil
+      (if (atom (car lst))
+          (if (eql (car lst) 'NIL)
+              (removeNILAll (cdr lst))
+              (cons (car lst) (removeNILAll (cdr lst))))
+          (let ((sublist (removeNILAll (car lst))))
+            (if (null sublist)
+                (removeNILAll (cdr lst))
+                (if (and (null (cdr lst)) (equal sublist 'NIL))
+                    nil
+                    (cons sublist (removeNILAll (cdr lst)))))))))

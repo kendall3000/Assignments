@@ -1,0 +1,6 @@
+kendallramos@Kendalls-MacBook-Air assign1 % ./multiple_wordcount Input_file_1.txt input_file_2.txt
+
+wordcount with process pid_18473 counted words in input_file_2.txt: number of words is 14
+wordcount with process pid_18472 counted words in Input_file_1.txt: number of words is 6
+2 files have been counted successfully!
+0 files did not exist or encountered an error!

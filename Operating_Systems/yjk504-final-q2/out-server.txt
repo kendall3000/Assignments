@@ -1,0 +1,15 @@
+kendallramos@Kendalls-MacBook-Air yjk504-final-q2 % ./server 72893
+Server: Waiting for incoming connections...
+Server: Accepted connection from client
+Server: Connection established with client
+Server: Received message from client: GET_GRADE yjk504
+Server: Sent reply to client: Student: Kendall, Grade: 93.90
+Server: Received message from client: GET_MAX
+Server: Sent reply to client: Max Grade: 93.90
+Server: Received message from client: GET_MIN
+Server: Sent reply to client: Min Grade: 0.00
+Server: Received message from client: GET_AVG
+Server: Sent reply to client: Avg Grade: 9.39
+Server: Received message from client: STOP
+Server: Received STOP message. Closing connection.
+Server: Closing connection with client

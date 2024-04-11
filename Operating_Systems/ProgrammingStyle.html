@@ -1,0 +1,70 @@
+<head>
+<TITLE>UTSA CS 3733 Operating Systems</TITLE>
+</HEAD>
+<BODY>
+This is not a formal standards document.
+Rather, it contains style guidelines for C programs to make them easier
+(for me) to read and debug them.
+<p>
+Programs written for this course must satisfy the following guidelines.
+For examples of such programs, see the programs in USP.
+<p>
+
+<OL>
+<LI> include files:
+  <OL type=a>
+  <LI> Include files should only contain macro and type definitions,
+       typedefs, and function prototypes.
+  <LI> All system include files should come first, starting with those at
+       the top level in alphabetical order, followed by those in subdirectories.  <LI> These are followed by user include files in alphabetical order.
+  <LI> These are followed by defined constants
+  <LI> These are followed by prototypes     
+  <LI> On some systems that do not follow the POSIX standard, the ordering
+       of the include files may have to be modified.
+  </OL>
+<LI> main:<br>
+     &nbsp&nbsp&nbsp&nbsp <tt>int main(void) {</tt><br>
+     &nbsp&nbsp&nbsp&nbsp <tt>int main(int argc, char *argv[]) {</tt>
+<LI> functions:
+   <OL type=a>
+   <LI> Do not start a new line for the opening brace for functions.
+   <LI> Local variables in alphabetical order
+   <LI> If a call to a function can produce an error, be sure that you test to
+        see if the error occurred and take the appropriate action.
+   <LI> If a function makes an assumption about a parameter, this should be
+        described in a comment before the code for the function.
+   <LI> Never call <tt>exit</tt> from a function other than <tt>main</tt>.
+   <LI> If you write a function whose purpose is not obvious, has restricted parameters,
+        or has side effects, you must describe what this function does.
+   <LI> Functions should not do any I/O unless I/O is required by the function specification.
+   <LI> Functions should not have side effects unless absolutely necessary.
+   <LI> All function side effects must be documented.
+   </OL>
+<LI> Indent 3 spaces for each level and do not use tab characters.
+<LI> Comments right justified.
+<LI> No lines longer than 80 characters.
+<LI> Blocks: starting brace does not start a new line.<br>
+     Indent three spaces. Do not use tab characters in your file.<br>
+     Ending brace lined up with statement containing the matching brace.
+<LI> No program should ever have a possibility of a buffer overflow.
+<LI> Main programs that take parameters should check for the correct
+     number of parameters and print a usage message if incorrect.
+<LI> Use functions (internal and external) liberally to modularize your 
+     programs.
+<LI> Use separate compilation.
+<LI> Use the <tt>static</tt> modifier to hide private functions and
+     global variables whenever possible.
+<LI> Use variables with external linkage only when necessary.
+<LI> Use make.
+<LI> Do not embed the numeric values of arbitrary constants in your code.<br>
+     Use <tt>#define</tt> to define constants and reference these symbolic
+     values instead.<br>
+     Be particularly careful to do this when defining the size of a buffer.
+<LI> At most one statement per line.
+<LI> At most one assignment per line.
+<LI> Do not return a negative value from main.
+<LI> Do not use 0 when you mean <tt>NULL</tt>.
+<LI> Do not use 0, 1, or 2 when you mean <tt>STDIN_FILNO</tt>, <tt>STDOUT_FILENO</tt>, or <tt>STDERR_FILENO</tt>.
+<LI> Never use goto under any circumstances.
+</OL>
+</body>

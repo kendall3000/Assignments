@@ -1,0 +1,15 @@
+Redacted Version of redactme.txt:
+City of Brook Haven, Connecticut
+Date: $(date +%m/%d/%Y)
+Title: [<redacted>] Memo #<redacted>
+Dear staff:
+Memorandum #<redacted> has been amended as follows , in accordance with the updated employee operations and purchasing policy∗:
+The only employees authorized to operate vehicle #89 (license plate
+<redacted>) , vehicle #<redacted> ( license plate <redacted>−<redacted>) , and vehicle #<redacted>
+( license plate <redacted>−<redacted>) are those employees who possess the following driver 's licenses:
+DL <redacted> DL <redacted> DL <redacted> DL <redacted>
+Further, usage of city credit cards will be strictly limited to the following departmental cards , until further notice :
+<redacted>−<redacted>−<redacted>−<redacted> <redacted> −<redacted> −<redacted>0 <redacted>−<redacted>−<redacted>−<redacted> <redacted>
+Thank you, Mgmt
+∗ Policy revision date 2/1/13 (originally passed 7/13/92).
+

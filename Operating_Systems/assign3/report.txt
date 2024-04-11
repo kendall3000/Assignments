@@ -1,0 +1,35 @@
+1. Collaboration:
+
+   - Collaborators: List the names of your collaborators, along with their roles in the project.
+     - Example:
+       - Dyllan (Medium Collaboration) - Discussed input parsing and debugging.
+       - Rodrigo (Small Collaboration) - Provided insights into scheduling algorithms.
+
+   - Discussion: Summarize the key discussions you had with your collaborators. Mention whether you mainly gave or received help.
+     - Example:
+       - I collaborated with John Doe to identify and resolve issues related to input parsing. It was a medium level of collaboration as 
+       we exchanged ideas and approaches for parsing input files. Additionally, I provided help to Jane Smith by explaining the working 
+       principles of different scheduling algorithms.
+
+2. Correctness:
+
+   - Assess the overall correctness of your project.
+     - Example:
+       - The code is currently encountering issues when parsing burst times from the input file. While we have made some progress in 
+       identifying the problem, it's not entirely correct at this stage.
+
+3. Progress:
+
+   - Describe what is working as expected and the progress made on issues that are not working.
+     - Example:
+       - The code successfully reads and parses the input file, creates the ready queue, and starts the scheduling algorithm. We 
+       have also implemented basic scheduling algorithms such as FIFO and SJF. However, we are still facing difficulties in correctly parsing burst 
+       times and ensuring that the scheduling algorithms work flawlessly. We've made some progress in identifying the parsing issue but have not fully 
+       resolved it.
+
+4. Comments:
+   - Share any comments or thoughts on your experience with the assignment, challenges faced, and how it could be made more interesting.
+     - Example:
+       - One of the main challenges has been ensuring proper input file parsing and error handling. To make this assignment more interesting, we
+        could explore advanced scheduling algorithms and dynamic priority management. Additionally, it's crucial to have clear and informative 
+        error messages to aid in troubleshooting.

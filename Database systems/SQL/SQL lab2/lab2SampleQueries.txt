@@ -1,0 +1,21 @@
+/*Sample query for Query 1
+It goes without saying that
+you include your name and date.
+Feel free to include other
+information*/
+
+/*Query 1: Selects book titles, subject and cost,
+ordered by subject and cost from Book
+- this is a well formatted query*/
+
+SELECT BOOK_TITLE, BOOK_SUBJECT, BOOK_COST
+FROM BOOK
+ORDER BY BOOK_SUBJECT, BOOK_COST asc;
+
+
+/*Query 1: Selects book titles, subject and cost,
+ordered by subject and cost from Book
+- this is a poorly formatted  query*/
+
+
+select BOOK_Title, BOOK_SUBJECT, book_cost FROM Book Order BY BOOK_SUBJECT, BOOK_cost ASC;

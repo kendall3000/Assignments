@@ -1,0 +1,185 @@
+/*
+Name : Kendall Ramos
+abc123 : yjk504
+Class No. : CS-3743-001-202410
+*/
+#-- ---------------------------------------------------------------------------------------------------------------------
+
+/*
+Query 1: List all purchases made by customers. Your query should return the Cus_Code, Inv_Number, 
+Inv_Date, P_Descript, Line_Units and Line_Price. Sort by Customer code, invoice number, and 
+product description in that order.
+*/
+
+SELECT
+    CUSTOMER.CUS_CODE,
+    INVOICE.INV_NUMBER,
+    INVOICE.INV_DATE,
+    PRODUCT.P_DESCRIPT,
+    LINE.LINE_UNITS,
+    LINE.LINE_PRICE
+FROM CUSTOMER
+JOIN INVOICE ON CUSTOMER.CUS_CODE = INVOICE.CUS_CODE
+JOIN LINE ON INVOICE.INV_NUMBER = LINE.INV_NUMBER
+JOIN PRODUCT ON LINE.P_CODE = PRODUCT.P_CODE
+ORDER BY CUSTOMER.CUS_CODE, INVOICE.INV_NUMBER, PRODUCT.P_DESCRIPT;
+
+#-- ---------------------------------------------------------------------------------------------------------------------
+
+/*
+Query 2: Generate a list of customer purchases, including subtotals for the invoice line numbers. Subtotals are a 
+derived attribute, calculated by multipying Line_Units by Line_Price. Columns displayed should be Cus_Code, 
+Inv_Number, P_Description, Units Bought (this is an alias), Unit Price (alias) and Subtotal (alias). It is up 
+to you to determine which columns you will use to create the aliases.
+*/
+
+SELECT
+    CUSTOMER.CUS_CODE, INVOICE.INV_NUMBER, PRODUCT.P_DESCRIPT,
+    LINE.LINE_UNITS AS `Units Bought`,
+    LINE.LINE_PRICE AS `Unit Price`,
+    (LINE.LINE_UNITS * LINE.LINE_PRICE) AS `Subtotal`
+FROM CUSTOMER
+JOIN INVOICE ON CUSTOMER.CUS_CODE = INVOICE.CUS_CODE
+JOIN LINE ON INVOICE.INV_NUMBER = LINE.INV_NUMBER
+JOIN PRODUCT ON LINE.P_CODE = PRODUCT.P_CODE;
+
+#-- ---------------------------------------------------------------------------------------------------------------------
+
+/*
+Query 3: Improve the query in question 2 by displaying Cus_LName, Cus_FName instead of Cus_Code. Use proper, 
+modern JOIN syntax to accomplish this. Add meaningful aliases to all columns.
+*/
+
+SELECT
+    CONCAT(CUSTOMER.CUS_FNAME, ' ', CUSTOMER.CUS_LNAME) AS `Customer Name`,
+    INVOICE.INV_NUMBER AS `Invoice Number`,
+    PRODUCT.P_DESCRIPT AS `Product Description`,
+    LINE.LINE_UNITS AS `Units Bought`,
+    LINE.LINE_PRICE AS `Unit Price`,
+    (LINE.LINE_UNITS * LINE.LINE_PRICE) AS `Subtotal`
+FROM CUSTOMER
+JOIN INVOICE ON CUSTOMER.CUS_CODE = INVOICE.CUS_CODE
+JOIN LINE ON INVOICE.INV_NUMBER = LINE.INV_NUMBER
+JOIN PRODUCT ON LINE.P_CODE = PRODUCT.P_CODE;
+
+#-- ---------------------------------------------------------------------------------------------------------------------
+
+/*
+Query 4: Write a query to display the Customer's Name (same format as above), the Cus_Balance and Total purchases for 
+each customer. Total purchases is calculated by summing subtotals from problem 3.
+*/
+SELECT
+    CONCAT(CUSTOMER.CUS_FNAME, ' ', CUSTOMER.CUS_LNAME) AS `Customer Name`,
+    CUSTOMER.CUS_BALANCE AS `Customer Balance`,
+    SUM(LINE.LINE_UNITS * LINE.LINE_PRICE) AS `Total Purchases`
+FROM CUSTOMER
+LEFT JOIN INVOICE ON CUSTOMER.CUS_CODE = INVOICE.CUS_CODE
+LEFT JOIN LINE ON INVOICE.INV_NUMBER = LINE.INV_NUMBER
+GROUP BY `Customer Name`, `Customer Balance`;
+
+#-- ---------------------------------------------------------------------------------------------------------------------
+
+/*
+Query 5: Add the number of total purchases to query 4.
+*/
+
+SELECT
+    CONCAT(CUSTOMER.CUS_FNAME, ' ', CUSTOMER.CUS_LNAME) AS `Customer Name`,
+    CUSTOMER.CUS_BALANCE AS `Customer Balance`,
+    SUM(LINE.LINE_UNITS * LINE.LINE_PRICE) AS `Total Purchases`,
+    COUNT(INVOICE.INV_NUMBER) AS `Number of Purchases`
+FROM CUSTOMER
+LEFT JOIN INVOICE ON CUSTOMER.CUS_CODE = INVOICE.CUS_CODE
+LEFT JOIN LINE ON INVOICE.INV_NUMBER = LINE.INV_NUMBER
+GROUP BY `Customer Name`, `Customer Balance`;
+
+#-- ---------------------------------------------------------------------------------------------------------------------
+
+/*
+Query 6: Calculate the average purchase amount for each customer to query 5. Your column headers should be Customer Last Name, 
+Customer First Name, Total Purchases, Number of Purchases, and Average Purchase Amount. The average purchase amount is 
+calculated for each customer.
+*/
+
+SELECT
+    CUSTOMER.CUS_LNAME AS `Customer Last Name`,
+    CUSTOMER.CUS_FNAME AS `Customer First Name`,
+    CUSTOMER.CUS_BALANCE AS `Customer Balance`,
+    SUM(LINE.LINE_UNITS * LINE.LINE_PRICE) AS `Total Purchases`,
+    COUNT(INVOICE.INV_NUMBER) AS `Number of Purchases`,
+    SUM(LINE.LINE_UNITS * LINE.LINE_PRICE) / COUNT(INVOICE.INV_NUMBER) AS `Average Purchase Amount`
+FROM CUSTOMER
+LEFT JOIN INVOICE ON CUSTOMER.CUS_CODE = INVOICE.CUS_CODE
+LEFT JOIN LINE ON INVOICE.INV_NUMBER = LINE.INV_NUMBER
+GROUP BY `Customer Last Name`, `Customer First Name`, `Customer Balance`;
+
+#-- ---------------------------------------------------------------------------------------------------------------------
+
+/*
+Query 7: Write a query that provides the total number of invoices, the sales total for all invoices, the 
+smallest purchase amount, largest purchase amount, and average purchase amount. You should use aliases 
+to make your output look reasonable for a business user.
+*/
+
+SELECT
+    COUNT(INVOICE.INV_NUMBER) AS `Total Invoices`,
+    SUM(LINE.LINE_UNITS * LINE.LINE_PRICE) AS `Total Sales`,
+    MIN(LINE.LINE_UNITS * LINE.LINE_PRICE) AS `Smallest Purchase Amount`,
+    MAX(LINE.LINE_UNITS * LINE.LINE_PRICE) AS `Largest Purchase Amount`,
+    AVG(LINE.LINE_UNITS * LINE.LINE_PRICE) AS `Average Purchase Amount`
+FROM INVOICE
+LEFT JOIN LINE ON INVOICE.INV_NUMBER = LINE.INV_NUMBER;
+
+#-- ---------------------------------------------------------------------------------------------------------------------
+
+/*
+Query 8: Advertising has requested a list of all customers who have never made a purchase, along with the 
+customer's name and phone number. Provide them with a query with this information. Display the name in the 
+style you believe would be most useful - briefly explain your choice in the comments.
+*/
+
+/*  In this query, I've displayed the customer's name in the style of "Last Name, First Name. I feel this style 
+is commonly used in business and makes it easy to quickly identify and reference customers. The last 
+name is typically listed first, followed by the first name, separated by a comma and space.
+*/
+SELECT 
+    CONCAT(CUSTOMER.CUS_FNAME, ' ', CUSTOMER.CUS_LNAME) AS `Customer Name`,
+    CUSTOMER.CUS_PHONE AS `Customer Phone`
+FROM CUSTOMER
+WHERE CUSTOMER.CUS_CODE NOT IN (SELECT DISTINCT CUS_CODE FROM INVOICE);
+
+#-- ---------------------------------------------------------------------------------------------------------------------
+
+/*
+Query 9: Calculate the value of products currently in inventory. The value of the products can be calculated 
+using P_QOH (quantity on hand) and P_Price. Display results with a subtotal for each different product.
+You should display the P_Descript, P_QOH, P_Price, and Subtotal for each product. Use aliases to improve 
+the display.
+*/
+
+SELECT
+    P_DESCRIPT AS `Product Description`,
+    P_QOH AS `Quantity On Hand`,
+    P_PRICE AS `Unit Price`,
+    (P_QOH * P_PRICE) AS `Subtotal`
+FROM PRODUCT;
+
+#-- ---------------------------------------------------------------------------------------------------------------------
+
+/*
+Query 10:  Which Vendor does this company use the most frequently to supply products? Display the Vendor's
+ name with the most products currently in the Product Table as well as the total number of 
+ products for that particular vendor. This query should display correctly if there is a tie between 
+ two vendors and if the data in the product table changes (e.g. we begin ordering more products from 
+ a particular vendor).
+*/
+
+SELECT
+    V.V_NAME AS `Vendor Name`,
+    COUNT(P.P_CODE) AS `Total Products`
+FROM VENDOR V
+LEFT JOIN PRODUCT P ON V.V_CODE = P.V_CODE
+GROUP BY `Vendor Name`
+ORDER BY `Total Products` DESC
+LIMIT 3;
+

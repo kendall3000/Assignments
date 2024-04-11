@@ -1,0 +1,54 @@
+kendallramos@Kendalls-MacBook-Air yjk504-final-q2 % ./client 192.168.4.64 72893
+Client: Connected to the server
+Options:
+1. Get GRADE for a student
+2. Get Min, Max, Avg
+3. Stop
+Enter option: 1
+Enter student ID: yjk504
+Client: Sent message to the server: GET_GRADE yjk504
+Client: Received response from the server: Student: Kendall, Grade: 93.90
+Options:
+1. Get GRADE for a student
+2. Get Min, Max, Avg
+3. Stop
+Enter option: 2
+Options:
+1. Get Min
+2. Get Max
+3. Get Avg
+Enter option: 2
+Client: Sent message to the server: GET_MAX
+Client: Received response from the server: Max Grade: 93.90
+Options:
+1. Get GRADE for a student
+2. Get Min, Max, Avg
+3. Stop
+Enter option: 2
+Options:
+1. Get Min
+2. Get Max
+3. Get Avg
+Enter option: 1
+Client: Sent message to the server: GET_MIN
+Client: Received response from the server: Min Grade: 0.00
+Options:
+1. Get GRADE for a student
+2. Get Min, Max, Avg
+3. Stop
+Enter option: 2
+Options:
+1. Get Min
+2. Get Max
+3. Get Avg
+Enter option: 3
+Client: Sent message to the server: GET_AVG
+Client: Received response from the server: Avg Grade: 9.39
+Options:
+1. Get GRADE for a student
+2. Get Min, Max, Avg
+3. Stop
+Enter option: 3
+Client: Sent STOP message to the server
+Client: Closing connection
+kendallramos@Kendalls-MacBook-Air yjk504-final-q2 % 

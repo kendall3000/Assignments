@@ -1,0 +1,66 @@
+Memory Management Report
+
+1. Collaborations:
+   - I worked independently on this assignment and did not collaborate with others.
+
+2. Overview:
+   The provided C program simulates a basic memory management system, including address translation, page fault 
+   handling, and page replacement. The system is designed to work with virtual and physical memory, considering 
+   various parameters such as BytesPerPage, SizeOfVirtualMemory, and SizeOfPhysicalMemory.
+
+3. Implementation Details:
+
+   3.1. part1.c:
+        - This part implements a simple address translation mechanism using a fixed page table. Page faults are not
+         handled, and it assumes the page table is pre-defined.
+
+   3.2. part2.c:
+        - Extends the functionality by implementing a dynamic page table with support for page replacement using the Least Recently 
+        Used (LRU) algorithm.
+        - The program initializes a dynamic page table, tracks free frames, and performs LRU page replacement when needed.
+
+   3.3. part3.c:
+        - This part builds upon the previous implementation, considering parameters such as BytesPerPage, SizeOfVirtualMemory, 
+        and SizeOfPhysicalMemory provided through command-line arguments.
+        - The program dynamically calculates the number of pages based on the provided virtual memory size, initializes a
+         dynamic page table, and performs address translation with page replacement using the LRU algorithm.
+
+4. Usage Instructions:
+
+   For each part of the program, the following command-line format is used:
+
+   - Usage: ./partX BytesPerPage SizeOfVirtualMemory SizeOfPhysicalMemory SequenceFile OutputFile
+
+   - BytesPerPage: The size of each page in bytes.
+   - SizeOfVirtualMemory: The total size of the virtual memory in bytes.
+   - SizeOfPhysicalMemory: The total size of the physical memory in bytes.
+   - SequenceFile: Input file containing logical addresses.
+   - OutputFile: Output file to store corresponding physical addresses.
+
+5. Observations:
+
+   5.1. part1.c:
+        - Limited functionality with a fixed page table.
+        - No page fault handling or dynamic memory allocation.
+
+   5.2. part2.c:
+        - Improved functionality with dynamic page table and LRU page replacement.
+        - Page faults are handled, and LRU mechanism ensures efficient page replacement.
+
+   5.3. part3.c:
+        - Takes additional parameters for memory sizes.
+        - Dynamically calculates the number of pages based on virtual memory size.
+        - Implements address translation with page replacement using LRU.
+
+
+6. Recommendations:
+
+   - Consider further optimizations or alternative page replacement algorithms for specific use cases.
+   - Enhance error handling for invalid input parameters or file operations.
+   - Provide more detailed comments and documentation for better code understanding.
+
+7. Conclusion:
+
+   The implemented memory management system demonstrates the evolution from a basic fixed page table to a 
+   dynamic system with LRU page replacement. Each part enhances the functionality, accommodating varying memory sizes and 
+   dynamic page allocation.

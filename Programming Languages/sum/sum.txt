@@ -1,0 +1,21 @@
+Unsafe Versions in a Multi-threaded Environment:
+    In a multi-threaded environment, two versions appear to be unsafe due to the use 
+    of global or static variables, which can lead to data race conditions:
+
+      - sum1.c is unsafe because it uses a global variable static int sumsq to accumulate 
+        the sum of squares. Multiple threads running this code could concurrently modify this global 
+        variable, leading to data race conditions.
+      - sum2.c is also unsafe because it uses static global variables static int x, static int y, and static 
+        int z to store the results. As with sum1.c, multiple threads could concurrently modify these 
+        global variables, causing data race conditions.
+
+
+Version Closest to Call-by-Name:
+  - The version closest to call-by-name is sum7.c. This version defines a macro sum7 that takes pointers 
+    as arguments and uses a do-while block to avoid issues with multiple evaluations of its arguments. In 
+    this way, it somewhat simulates call-by-name behavior because it operates on the arguments directly within 
+    the macro.
+  - Call-by-name is a parameter-passing mechanism in which arguments are substituted directly into the 
+    function's body, avoiding multiple evaluations. While sum7.c does not fully replicate call-by-name semantics, 
+    it comes closest among the provided C implementations by using macros with pointers and a do-while block 
+    to minimize multiple evaluations of arguments.

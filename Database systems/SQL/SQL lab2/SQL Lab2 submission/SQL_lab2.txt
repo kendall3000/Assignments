@@ -1,0 +1,136 @@
+/* Hey Thanks for the lab i had fun doing it and it really helped my understanding and figuring out 
+some questions i had been having on my own.
+
+Name : Kendall Ramos
+abc123 : yjk504
+Class No. : CS-3743-001-202410
+*/
+
+/*
+Query 1: Find out how much each book costs - include the title, subject, and cost. Sort the books by
+subject first, then cost with the lowest cost book listed first.
+*/
+
+SELECT BOOK_TITLE, BOOK_SUBJECT, BOOK_COST
+FROM BOOK
+ORDER BY BOOK_SUBJECT, BOOK_COST asc;
+
+-- ----------------------------------------------------------------------------------------------------
+/*Query 2: list the names of all the patrons*/
+
+SELECT PAT_FNAME, PAT_LNAME
+FROM PATRON
+
+-- ----------------------------------------------------------------------------------------------------
+/*
+Query 3: What years were books published? Each year should only return one time. 
+Bonus question: How many books were published in that year?
+*/
+
+SELECT DISTINCT BOOK_YEAR, COUNT(*) AS BOOK_COUNT
+FROM BOOK
+GROUP BY BOOK_YEAR
+ORDER BY BOOK_YEAR;
+
+-- ----------------------------------------------------------------------------------------------------
+/*
+Query 4: Find all the titles of books that cost 59.95
+*/
+
+SELECT BOOK_TITLE
+FROM BOOK
+WHERE BOOK_COST = 59.95;
+
+-- ----------------------------------------------------------------------------------------------------
+/*
+Query 5: Some authors are missing birthday information. Provide a list of authors first and last 
+names where Birthdate is missing (null).
+*/
+
+SELECT AU_FNAME, AU_LNAME, AU_BIRTHYEAR
+FROM AUTHOR
+WHERE AU_BIRTHYEAR IS NULL;
+
+-- ----------------------------------------------------------------------------------------------------
+/*
+Query 6: list authors and how many books each author has written. 
+Use the full author's name provide the number of books they wrote
+*/
+
+SELECT CONCAT(AUTHOR.AU_FNAME, ' ', AUTHOR.AU_LNAME) AS AUTHOR_NAME,
+       COUNT(WRITES.BOOK_NUM) AS BOOKS_WRITTEN
+FROM AUTHOR
+LEFT JOIN WRITES ON AUTHOR.AU_ID = WRITES.AU_ID
+GROUP BY AUTHOR_NAME
+ORDER BY BOOKS_WRITTEN;
+
+-- ----------------------------------------------------------------------------------------------------
+/*
+Query 7: Figure out how long each patron kept their checkouts. Display each patron name, 
+book title and how many days they kept the book.
+*/
+
+SELECT CONCAT(PATRON.PAT_FNAME, ' ',PATRON.PAT_LNAME) AS PATRON_NAME, BOOK.BOOK_TITLE, 
+	   DATEDIFF(CHECKOUT.CHECK_IN_DATE, CHECKOUT.CHECK_OUT_DATE) AS DAYS_KEPT
+FROM PATRON
+JOIN CHECKOUT ON PATRON.PAT_ID = CHECKOUT.PAT_ID
+JOIN BOOK ON CHECKOUT.BOOK_NUM = BOOK.BOOK_NUM;
+
+-- ----------------------------------------------------------------------------------------------------
+/*
+Query 8: Display each author name, book title and book subject. Sort by Book Subject.
+*/
+SELECT CONCAT(AUTHOR.AU_FNAME, ' ', AUTHOR.AU_LNAME) AS AUTHOR_NAME,
+	   BOOK_TITLE, BOOK_SUBJECT
+FROM AUTHOR
+JOIN WRITES ON AUTHOR.AU_ID = WRITES.AU_ID
+JOIN BOOK ON WRITES.BOOK_NUM = BOOK.BOOK_NUM
+ORDER BY BOOK_SUBJECT;
+
+-- ----------------------------------------------------------------------------------------------------
+/*
+Query 9: Find out who has books currently checked out. You should return the patron's first name, 
+last name, and book title.
+*/
+
+SELECT PATRON.PAT_FNAME,PATRON.PAT_LNAME, BOOK.BOOK_TITLE
+FROM PATRON
+JOIN CHECKOUT ON PATRON.PAT_ID = CHECKOUT.PAT_ID
+JOIN BOOK ON CHECKOUT.BOOK_NUM = BOOK.BOOK_NUM
+WHERE CHECKOUT.CHECK_IN_DATE IS NULL;
+
+-- ----------------------------------------------------------------------------------------------------
+/*
+Query 10: Which books are most popular? Create a query that displays the book number, the book title,
+and the number of times each book has been checked out. Arrange the books in order from the most
+checkouts to the fewest checkouts. For books with the same number of checkouts, 
+arrange alphabetically.
+*/
+
+SELECT BOOK.BOOK_NUM, BOOK.BOOK_TITLE, COUNT(CHECKOUT.CHECK_NUM) AS NUM_OF_CHECKOUTS
+FROM BOOK
+LEFT JOIN CHECKOUT ON BOOK.BOOK_NUM = CHECKOUT.BOOK_NUM
+GROUP BY BOOK.BOOK_NUM, BOOK.BOOK_TITLE 
+ORDER BY NUM_OF_CHECKOUTS desc, BOOK.BOOK_TITLE;
+
+-- ----------------------------------------------------------------------------------------------------
+/*
+Query 11: Write a question and a query of your own that joins a minimum of three tables. Think 
+about what information might be useful from this database. Describe the information you want 
+your query to return, write the query and display the results.
+*/
+
+-- Kendall's Question
+/* Can you provide a list of all books checked out by students in the "Programming" subject, 
+along with the students' names and the due dates for each book? */
+
+SELECT
+	CONCAT(PATRON.PAT_FNAME, ' ', PATRON.PAT_LNAME) AS STUDENT_NAME,
+    BOOK.BOOK_TITLE AS Book_Title,
+    CHECKOUT.CHECK_DUE_DATE AS Due_Date
+FROM PATRON
+JOIN CHECKOUT ON PATRON.PAT_ID = CHECKOUT.PAT_ID
+JOIN BOOK ON CHECKOUT.BOOK_NUM = BOOK.BOOK_NUM
+WHERE PATRON.PAT_TYPE = 'Student' AND BOOK.BOOK_SUBJECT = 'Programming'
+ORDER BY BOOK.BOOK_TITLE;
+

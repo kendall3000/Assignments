@@ -1,0 +1,87 @@
+-- Query 1: Select total players and average weight per team, excluding teams with no players
+-- Created by: Coy Burrows
+SELECT t.team_id, t.team_name, COUNT(p.player_id) AS total_players, ROUND(AVG(p.weight), 3) AS avg_weight
+FROM team t
+LEFT JOIN roster r ON t.team_id = r.team_id
+LEFT JOIN roster_line rl ON r.roster_id = rl.roster_id
+LEFT JOIN player p ON rl.player_id = p.player_id
+WHERE p.player_id IS NOT NULL
+GROUP BY t.team_id, t.team_name;
+
+-- Query 2: Select distinct player names along with their jersey numbers and team names
+-- Created by: Coy Burrows
+SELECT DISTINCT 
+    CONCAT(p.player_fname, ' ', p.player_lname) AS player_name,
+    p.jersey_number,
+    t.team_name
+FROM player p
+JOIN roster_line rl ON p.player_id = rl.player_id
+JOIN roster r ON rl.roster_id = r.roster_id
+JOIN team t ON r.team_id = t.team_id;
+
+
+
+-- Query 3: Select players with average points per game above the overall average
+-- Created By: Joe Louie Corporal
+SELECT 
+    p.player_id,
+    CONCAT(p.player_fname, ' ', p.player_lname) AS player_name,
+    AVG(stats.field_goals + stats.threepoint_field_goals * 3 + stats.free_throws) AS avg_ppg
+FROM player p
+JOIN player_per_game_stats stats ON p.player_id = stats.player_id
+GROUP BY p.player_id
+HAVING AVG(stats.field_goals + stats.threepoint_field_goals * 3 + stats.free_throws) > (
+    -- Subquery to calculate overall average points per game
+    SELECT AVG(stats.field_goals + stats.threepoint_field_goals * 3 + stats.free_throws)
+    FROM player_per_game_stats stats
+);
+
+-- Query 4: Select statement with an order by clause
+-- Created By: Joe Louie Corporal
+SELECT
+    player_id, player_fname, player_lname, height
+FROM player
+ORDER BY player_lname ASC, player_fname ASC;
+
+
+
+-- Query 5: Insert a new player and run trigger to update player count in team
+-- Created By: Kendall Ramos
+INSERT INTO player (player_fname, player_lname, jersey_number, player_position, height, weight, birthdate, player_id)
+VALUES ('Chewbacca', 'Facundo', 99, 'Forward', 6.5, 220, '1990-01-03', 3);
+
+-- Query 6: Delete a player and run trigger to update player count in team
+-- Created By: Kendall Ramos
+DELETE FROM player WHERE player_id = 3;
+
+-- Two queries of your choice with comments: Generate random lineup & Top 5 Scores of the Season
+
+-- Query 7: Generate random lineup of 5 players with different positions
+-- Created By: Kendall Ramos
+SELECT
+    MIN(p.player_id) AS player_id,
+    CONCAT(MIN(p.player_fname), ' ', MIN(p.player_lname)) AS player_full_name,
+    MIN(p.player_position) AS position
+FROM
+    player p
+GROUP BY
+    p.player_position
+ORDER BY
+    RAND()
+LIMIT 5;
+
+-- Query 8: Top 5 Players with Total Points in a Specific Season and Different Positions
+-- Created By: Kendall Ramos
+SELECT
+    p.player_id,
+    p.player_fname,
+    p.player_lname,
+    p.player_position,
+    SUM(ppgs.field_goals + ppgs.threepoint_field_goals + ppgs.free_throws) AS total_points
+FROM player p
+JOIN player_per_game_stats ppgs ON p.player_id = ppgs.player_id
+JOIN game g ON ppgs.game_id = g.game_id
+WHERE g.season_id = 4 -- Replace with the desired season ID (4, 5, or 6)
+GROUP BY p.player_id, p.player_fname, p.player_lname, p.player_position
+ORDER BY total_points DESC
+LIMIT 5;

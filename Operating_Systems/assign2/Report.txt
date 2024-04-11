@@ -1,0 +1,62 @@
+REPORT for Multithreaded Sorting Application
+
+Kendall Ramos - yjk504
+09/29/2023
+
+1. Collaborators:
+   - No collaborations were made on this assignment. It was completed individually, and no external help was sought.
+
+2. Correctness:
+   - Yes, from what i can tell it seems to be functioning pretty well for me and though i ran into a few issues with the threads i was able to figure it out.
+   Everything in the code is working correctly. 
+   - Java Implementation:
+     - The Java implementation appears to be correct and produces the expected results.
+   - C Implementation:
+     - The C implementation appears to be correct and produces the expected results.
+
+3. Functionality:
+   - Everything seems to be functioning correctly.
+
+4. Comments:
+   - This assignment was a valuable learning experience in implementing multithreading in both Java and C with Pthreads. It 
+        provided insights into the advantages of multithreading for tasks like sorting and averaging. 
+   - Challenges: The main challenge I encountered was optimizing the insertion sort algorithm for sorting a large array efficiently within
+        a multithreaded environment. We made several improvements to enhance sorting performance. While the assignment 
+        was challenging, it was also rewarding to see how multithreading can significantly improve program performance.
+   - Interesting Aspects: It was interesting to observe how dividing the array and sorting it concurrently with two threads 
+        significantly improved sorting time compared to a single-threaded approach.
+   - The assignment was a great opportunity to practice multithreading in both Java and C.
+   - Implementing sorting and averaging algorithms using threads added complexity but improved performance.
+   - Care was taken to ensure that parameters were passed correctly to the threads in both languages.
+
+
+5. Program Output:
+    - For N=1000:
+    kendallramos@Kendalls-MacBook-Air assign4 % ./pThreads 1000           
+    Sorting is done in 1.0ms when one thread is used
+    Sorting is done in 0.4ms when two threads are used
+
+    kendallramos@Kendalls-MacBook-Air assign4 % java SorterThread 1000 
+    Sorting is done in 3.000375ms when two threads are used
+    Sorting is done in 0.276167ms when one thread is used
+
+
+    - For N = 5000
+    kendallramos@Kendalls-MacBook-Air assign4 % ./pThreads 5000
+    Sorting is done in 6.0ms when one thread is used
+    Sorting is done in 1.7ms when two threads are used
+
+    kendallramos@Kendalls-MacBook-Air assign4 % java SorterThread 5000
+    Sorting is done in 7.398ms when two threads are used
+    Sorting is done in 1.418708ms when one thread is used
+
+    - For N = 10000
+    kendallramos@Kendalls-MacBook-Air assign4 % ./pThreads 10000       
+    Sorting is done in 23.9ms when one thread is used
+    Sorting is done in 6.5ms when two threads are used
+
+    kendallramos@Kendalls-MacBook-Air assign4 % java SorterThread 10000
+    Sorting is done in 10.399625ms when two threads are used
+    Sorting is done in 0.933667ms when one thread is used
+
+    

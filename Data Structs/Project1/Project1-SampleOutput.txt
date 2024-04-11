@@ -1,0 +1,203 @@
+
+This solution was completed by:
+<student name #1>
+<student name #2 (if no partner write "N/A")>
+
+
+
+------------ START OF TEST #1 ------------
+
+Process data created: NEW-0 (FOREGROUND for 6 steps)
+Process data created: LNG-0 (BACKGROUND for 10 steps)
+Process data created: SMP-0 (FOREGROUND for 15 steps)
+Process data created: RPD-0 (FOREGROUND for 4 steps)
+Process data created: VID-0 (FOREGROUND for 20 steps)
+
+Process data loaded: NEW-0 (run for 0/6 steps so far)
+Attempting to run process: NEW-0 for 5 steps
+   1 - Running process: NEW-0
+   2 - Running process: NEW-0
+   3 - Running process: NEW-0
+   4 - Running process: NEW-0
+   5 - Running process: NEW-0
+
+Process data evicted: NEW-0 (run for 5/6 steps so far)
+Process data loaded: SMP-0 (run for 0/15 steps so far)
+Attempting to run process: SMP-0 for 5 steps
+   6 - Running process: SMP-0
+   7 - Running process: SMP-0
+   8 - Running process: SMP-0
+   9 - Running process: SMP-0
+  10 - Running process: SMP-0
+
+Process data evicted: SMP-0 (run for 5/15 steps so far)
+Process data loaded: RPD-0 (run for 0/4 steps so far)
+Attempting to run process: RPD-0 for 5 steps
+  11 - Running process: RPD-0
+  12 - Running process: RPD-0
+  13 - Running process: RPD-0
+Execution interrupted after 3 steps: RPD-0
+Process data created: RPD-1 (FOREGROUND for 2 steps)
+
+Attempting to run process: RPD-0 for 2 steps
+  14 - Running process: RPD-0
+Process completed after 1 steps: RPD-0
+Process data deleted: RPD-0 (run for 4/4 steps)
+
+Process data loaded: VID-0 (run for 0/20 steps so far)
+Attempting to run process: VID-0 for 5 steps
+  15 - Running process: VID-0
+  16 - Running process: VID-0
+  17 - Running process: VID-0
+  18 - Running process: VID-0
+  19 - Running process: VID-0
+
+Process data evicted: VID-0 (run for 5/20 steps so far)
+Process data loaded: NEW-0 (run for 5/6 steps so far)
+Attempting to run process: NEW-0 for 5 steps
+  20 - Running process: NEW-0
+Process completed after 1 steps: NEW-0
+Process data deleted: NEW-0 (run for 6/6 steps)
+
+Process data loaded: SMP-0 (run for 5/15 steps so far)
+Attempting to run process: SMP-0 for 5 steps
+  21 - Running process: SMP-0
+  22 - Running process: SMP-0
+  23 - Running process: SMP-0
+Execution interrupted after 3 steps: SMP-0
+Process data created: SMP-2 (BACKGROUND for 15 steps)
+
+Attempting to run process: SMP-0 for 2 steps
+  24 - Running process: SMP-0
+  25 - Running process: SMP-0
+
+Process data evicted: SMP-0 (run for 10/15 steps so far)
+Process data loaded: RPD-1 (run for 0/2 steps so far)
+Attempting to run process: RPD-1 for 5 steps
+  26 - Running process: RPD-1
+  27 - Running process: RPD-1
+Process completed after 2 steps: RPD-1
+Process data deleted: RPD-1 (run for 2/2 steps)
+
+Process data loaded: VID-0 (run for 5/20 steps so far)
+Attempting to run process: VID-0 for 5 steps
+  28 - Running process: VID-0
+  29 - Running process: VID-0
+  30 - Running process: VID-0
+  31 - Running process: VID-0
+  32 - Running process: VID-0
+
+Process data evicted: VID-0 (run for 10/20 steps so far)
+Process data loaded: SMP-0 (run for 10/15 steps so far)
+Attempting to run process: SMP-0 for 5 steps
+  33 - Running process: SMP-0
+  34 - Running process: SMP-0
+  35 - Running process: SMP-0
+  36 - Running process: SMP-0
+  37 - Running process: SMP-0
+Process completed after 5 steps: SMP-0
+Process data deleted: SMP-0 (run for 15/15 steps)
+
+Process data loaded: VID-0 (run for 10/20 steps so far)
+Attempting to run process: VID-0 for 5 steps
+  38 - Running process: VID-0
+  39 - Running process: VID-0
+  40 - Running process: VID-0
+  41 - Running process: VID-0
+  42 - Running process: VID-0
+
+Attempting to run process: VID-0 for 5 steps
+  43 - Running process: VID-0
+  44 - Running process: VID-0
+  45 - Running process: VID-0
+  46 - Running process: VID-0
+  47 - Running process: VID-0
+Process completed after 5 steps: VID-0
+Process data deleted: VID-0 (run for 20/20 steps)
+
+Process data loaded: LNG-0 (run for 0/10 steps so far)
+Attempting to run process: LNG-0 for 3 steps
+  48 - Running process: LNG-0
+  49 - Running process: LNG-0
+  50 - Running process: LNG-0
+
+Process promoted: LNG-0 (run for 3/10 steps so far)
+Attempting to run process: LNG-0 for 5 steps
+  51 - Running process: LNG-0
+  52 - Running process: LNG-0
+  53 - Running process: LNG-0
+  54 - Running process: LNG-0
+Execution interrupted after 4 steps: LNG-0
+Process data created: LNG-3 (FOREGROUND for 5 steps)
+
+Attempting to run process: LNG-0 for 1 steps
+  55 - Running process: LNG-0
+
+Process data evicted: LNG-0 (run for 8/10 steps so far)
+Process data loaded: LNG-3 (run for 0/5 steps so far)
+Attempting to run process: LNG-3 for 5 steps
+  56 - Running process: LNG-3
+  57 - Running process: LNG-3
+  58 - Running process: LNG-3
+  59 - Running process: LNG-3
+  60 - Running process: LNG-3
+Process completed after 5 steps: LNG-3
+Process data deleted: LNG-3 (run for 5/5 steps)
+
+Process data loaded: LNG-0 (run for 8/10 steps so far)
+Attempting to run process: LNG-0 for 5 steps
+  61 - Running process: LNG-0
+  62 - Running process: LNG-0
+Process completed after 2 steps: LNG-0
+Process data deleted: LNG-0 (run for 10/10 steps)
+
+Process data loaded: SMP-2 (run for 0/15 steps so far)
+Attempting to run process: SMP-2 for 11 steps
+  63 - Running process: SMP-2
+  64 - Running process: SMP-2
+  65 - Running process: SMP-2
+  66 - Running process: SMP-2
+  67 - Running process: SMP-2
+  68 - Running process: SMP-2
+  69 - Running process: SMP-2
+  70 - Running process: SMP-2
+Execution interrupted after 8 steps: SMP-2
+Process data created: SMP-4 (FOREGROUND for 7 steps)
+
+Process data evicted: SMP-2 (run for 8/15 steps so far)
+Process data loaded: SMP-4 (run for 0/7 steps so far)
+Attempting to run process: SMP-4 for 3 steps
+  71 - Running process: SMP-4
+  72 - Running process: SMP-4
+  73 - Running process: SMP-4
+
+Process promoted: SMP-2 (run for 8/15 steps so far)
+Attempting to run process: SMP-4 for 2 steps
+  74 - Running process: SMP-4
+  75 - Running process: SMP-4
+
+Process data evicted: SMP-4 (run for 5/7 steps so far)
+Process data loaded: SMP-2 (run for 8/15 steps so far)
+Attempting to run process: SMP-2 for 5 steps
+  76 - Running process: SMP-2
+  77 - Running process: SMP-2
+  78 - Running process: SMP-2
+  79 - Running process: SMP-2
+  80 - Running process: SMP-2
+
+Process data evicted: SMP-2 (run for 13/15 steps so far)
+Process data loaded: SMP-4 (run for 5/7 steps so far)
+Attempting to run process: SMP-4 for 5 steps
+  81 - Running process: SMP-4
+  82 - Running process: SMP-4
+Process completed after 2 steps: SMP-4
+Process data deleted: SMP-4 (run for 7/7 steps)
+
+Process data loaded: SMP-2 (run for 13/15 steps so far)
+Attempting to run process: SMP-2 for 5 steps
+  83 - Running process: SMP-2
+  84 - Running process: SMP-2
+Process completed after 2 steps: SMP-2
+Process data deleted: SMP-2 (run for 15/15 steps)
+
+------------ END OF TEST #1 ------------

@@ -1,0 +1,57 @@
+Kendall Ramos
+yjk504
+11/30/2023
+
+Assignment 6
+
+kendallramos@Kendalls-MacBook-Air Programming Languages % python -u "/Users/kendallramos/Programming Languages/assign6.py"
+Output for the first one:
+-------------------------
+0
+2
+4
+outside 4
+
+Output for the Second one:
+----------------------------
+in top 0
+         after 1
+in top 2
+         after 3
+in top 4
+         after 5
+outside 5
+
+Output for the Third one:
+----------------------------
+0
+2
+4
+outside 4
+
+Output for the Fourth one:
+----------------------------
+0
+2
+4
+outside 4
+kendallramos@Kendalls-MacBook-Air Programming Languages % 
+
+2. Does changing the control variables inside the ‘for statement body’ modify the output?
+Change/modify the respective variable one at a time and observe the outcome. Explain/describe
+each of the followings -
+
+a. Impact of changing 'end':
+    Changing 'end' inside the loop body won't have any impact on the loop since 'end' is used only in the loop 
+    initialization. It determines the upper bound for the range of values in the loop, and altering it inside the loop 
+    won't affect the current loop iteration.
+b. Impact of changing 'increment':
+    Changing 'increment' inside the loop body will not impact the current iteration. The loop will continue with the 
+    initially assigned 'increment' value for the current iteration. The change will only take effect in the next iteration.
+c. Impact of changing 'number':
+    Changing 'number' inside the loop body will only affect the local variable 'number' within that specific iteration. 
+    It won't impact the loop's behavior in subsequent iterations. Each iteration starts with the value assigned by the 
+    loop, and any changes made to 'number' inside the loop won't carry over to the next iteration.
+
+In summary, changing control variables like 'end', 'increment', or 'number' inside the loop body has a localized effect on the 
+current iteration and won't affect the overall behavior of the loop in subsequent iterations.
