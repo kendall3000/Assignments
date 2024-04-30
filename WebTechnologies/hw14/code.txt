@@ -1,0 +1,189 @@
+echo' <form method="post" action="" id="mainForm" style="padding:20px;margin=20px">';
+		//validation for firstname
+		if(isset($_GET['errMsg']) && strstr($_GET['errMsg'],"firstNameNull")){
+			echo' <div id="firstNameDiv" class="form-group has-error">';
+			echo' <label class="control-label" for="firstname">First Name: </label>';
+			echo' <input type="text" id="firstname" name="firstname" class="form-control"/>';
+			echo' <div id="fnFeedback">First name cannot be blank!</div>';
+			echo' </div>';
+		}
+		else// there is no error, check for previously submitted data
+		{
+			if(isset($_SESSION['firstname'])){ // form loaded with previous data
+				echo '<div id="firstNameDiv" class="form-group has-success">';
+				echo '<label class="control-label" for="firstname">First Name: </label>';
+				echo '<input type="text" id="firstname" name="firstname" class="form-control" value="'.$_SESSION['firstname'].'"/>';
+				echo '<div id="fnFeedback"></div>';
+				echo '</div>';
+			}
+			else // form loaded with no data
+			{
+				echo' <div id="firstNameDiv" class="form-group">';
+				echo' <label class="control-label" for="firstname">First Name: </label>';
+				echo' <input type="text" id="firstname" name="firstname" class="form-control">';
+				echo' <div id="fnFeedback"></div>';
+				echo' </div>';
+			}
+		}
+		
+		//validation for lastname	
+		if(isset($_GET['errMsg']) && strstr($_GET['errMsg'],"lastNameNull")){
+			echo '<div class="form-group has-error">';
+			echo '<label class="control-label" for="lastname">Last Name: </label>';
+			echo '<input type="text" id="lastname" name="lastname" class="form-control"/>';
+			echo '<div id="unFeedback">Last name cannot be blank!</div>';
+			echo '</div>';
+		}
+		else
+		{
+			
+			if(isset($_SESSION['lastname'])){ // form loaded with previous data
+				echo '<div class="form-group has-success">';
+				echo '<label class="control-label" for="lastname">Last Name: </label>';
+				echo '<input type="text" id="lastname" name="lastname" class="form-control" value="'.$_SESSION['lastname'].'"/>';
+				echo '<div id="lnFeedback"></div>';
+				echo '</div>';
+			}
+			else // form loaded with no data
+			{
+				echo' <div class="form-group">';
+				echo' <label class="control-label" for="lastname">Last Name: </label>';
+				echo' <input type="text" id="lastname" name="lastname" class="form-control">';
+				echo' <div id="lnFeedback"></div>';
+				echo' </div>';
+			}
+		}
+		
+		//validation for email	  
+		if(isset($_GET['errMsg']) && strstr($_GET['errMsg'],"emailNull")){
+			echo '<div class="form-group has-error">';
+			echo '<label class="control-label" for="email">Email: </label>';
+			echo '<input type="text" id="email" name="email" class="form-control"/>';
+			echo '<div id="unFeedback">Email cannot be blank!</div>';
+			echo '</div>';
+		}
+		else
+		{
+			if(isset($_SESSION['email'])){ // form loaded with previous data
+				echo '<div class="form-group has-success">';
+				echo '<label class="control-label" for="email">Email: </label>';
+				echo '<input type="text" id="email" name="email" class="form-control" value="'.$_SESSION['email'].'"/>';
+				echo '<div id="fnFeedback"></div>';
+				echo '</div>';
+			}
+			else // form loaded with no data
+			{
+				echo' <div class="form-group">';
+				echo' <label class="control-label" for="email">Email: </label>';
+				echo' <input type="text" id="email" name="email" class="form-control">';
+				echo' <div id="fnFeedback"></div>';
+				echo' </div>';
+			}
+		}
+		
+		//validation for phone
+		if(isset($_GET['errMsg']) && strstr($_GET['errMsg'],"phoneNull")){
+			echo '<div class="form-group has-error">';
+			echo '<label class="control-label" for="phone">Phone: </label>';
+			echo '<input type="text" id="phone" name="phone" class="form-control"/>';       
+			echo '<div id="unFeedback">Phone cannot be blank!</div>';
+			echo '</div>';
+		}
+		else
+		{
+			if(isset($_SESSION['phone'])){ // form loaded with previous data
+				echo '<div class="form-group has-success">';
+				echo '<label class="control-label" for="phone">Phone: </label>';
+				echo '<input type="text" id="phone" name="phone" class="form-control" value="'.$_SESSION['phone'].'"/>';
+				echo '<div id="fnFeedback"></div>';
+				echo '</div>';
+			}
+			else // form loaded with no data
+			{
+				echo' <div class="form-group">';
+				echo' <label class="control-label" for="phone">Phone: </label>';
+				echo' <input type="text" id="phone" name="phone" class="form-control">';
+				echo' <div id="fnFeedback"></div>';
+				echo' </div>';
+			}
+		}
+		
+		//validation for username
+		if(isset($_GET['errMsg']) && strstr($_GET['errMsg'],"userNull")){		 
+			echo '<div class="form-group has-error">';
+			echo '<label class="control-label" for="username">Create a username: </label>';
+			echo '<input type="text" id="username" name="username" class="form-control"/>';       
+			echo '<div id="unFeedback">Username cannot be blank!</div>';
+			echo '</div>';
+		}
+		else
+		{
+			if(isset($_SESSION['username'])){ // form loaded with previous data
+				echo '<div class="form-group has-success">';
+				echo '<label class="control-label" for="username">Username: </label>';
+				echo '<input type="text" id="username" name="username" class="form-control" value="'.$_SESSION['username'].'"/>';
+				echo '<div id="fnFeedback"></div>';
+				echo '</div>';
+			}
+			else // form loaded with no data
+			{
+				echo' <div class="form-group">';
+				echo' <label class="control-label" for="email">Email: </label>';
+				echo' <input type="text" id="username" name="username" class="form-control">';
+				echo' <div id="fnFeedback"></div>';
+				echo' </div>';
+			}
+		}
+		
+		//validation for password
+		if(isset($_GET['errMsg']) && strstr($_GET['errMsg'],"passwordNull")){		 
+			echo '<div class="form-group has-error">';
+			echo '<label class="control-label" for="password">Create a password: </label>';     
+			echo '<input type="password" class="form-control" id="password" name="password"/>';
+			echo '<div id="pwFeedback">Password cannot be blank!</div>';
+			echo '</div>';
+		}
+		else
+		{
+			if(isset($_SESSION['password'])){ // form loaded with previous data
+				echo '<div class="form-group has-success">';
+				echo '<label class="control-label" for="password">Password: </label>';
+				echo '<input type="text" id="password" name="password" class="form-control" value="'.$_SESSION['password'].'"/>';
+				echo '<div id="fnFeedback"></div>';
+				echo '</div>';
+			}
+			else // form loaded with no data
+			{
+				echo' <div class="form-group">';
+				echo' <label class="control-label" for="password">Password: </label>';
+				echo' <input type="text" id="password" name="password" class="form-control">';
+				echo' <div id="fnFeedback"></div>';
+				echo' </div>';
+			}
+		}
+		if(isset($_SESSION['comments'])){ // form loaded with previous data
+				echo '<div class="form-group has-success">';
+				echo '<label class="control-label" for="comments">Comments: </label>';
+				echo '<input type="text" id="comments" name="comments" class="form-control" value="'.$_SESSION['comments'].'"/>';
+				echo '<div id="fnFeedback"></div>';
+				echo '</div>';
+			}
+			else // form loaded with no data
+			{
+				echo' <div class="form-group">';
+				echo '<label for="comments">Comments: </label>';
+				echo '<textarea id="comments" name="comments" class="form-control"></textarea>';  
+				echo '<div id="unFeedback"></div>';
+				echo' </div>';
+		}
+		echo '<div class="form-group">';
+		echo '<label for="comments">Comments: </label>';
+		echo '<textarea id="comments" name="comments" class="form-control"></textarea>';  
+		echo '<div id="unFeedback"></div>';
+		echo '</div>';
+				 
+		echo '<div class="form-group"> ';
+		echo '<button class+"btn btn-primary" type="submit" value="sign up!" name="submit" />Submit</button>';
+		echo '</div>';    
+		echo '</form>';
+    }

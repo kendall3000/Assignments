@@ -1,0 +1,137 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Kumbh Sans', sans-serif;
+}
+
+.navbar{
+  background: rgb(6, 6, 59);
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.navbar__container{
+  display: flex;
+  height: 80px;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0 50px;
+  margin: 0 auto;
+  max-width: 1300px;
+}
+
+/*make the logo bounce if possible with javascript*/
+#navbar__logo{
+  background-color: #4867f2;
+  background-image: linear-gradient(to top, #0032c8 0%, #4867f2 100%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+.navbar__menu{
+  display: flex;
+  align-items: center;
+  list-style: none;
+  text-align: center;
+}
+.navbar__item{
+  height: 80px;
+}
+
+.navbar__links{
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  text-decoration: none;
+  height: 100%;
+}
+
+.aboutMe__container{
+  background-color: #48BCF2;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  box-sizing: border-box; 
+  /*-webkit-box-pack: center;
+  -webkit-font-smoothing: antialiased;*/
+  width: 100%;
+  font-size: 110%;
+  /*font-weight: bold;*/
+  
+}
+.aboutMe-p{
+  padding: 0 5% 20px 5%;
+
+}
+
+.slogan{
+  padding-bottom: 20px;
+  padding-top: 30px;
+  padding-right: 35%;
+  font-weight: bold;
+  font-size: 150%;
+  text-align: center;
+}
+.aboutMe-p1{
+  padding-bottom: 2%;
+}
+
+.aboutMe-p2{
+  padding-bottom: 2%;
+}
+
+.aboutMe-p3{
+  padding-bottom: 2%;
+}
+
+.profile-pic{
+  float: right;
+  padding-left: 5%;
+  padding-bottom: 10%;
+  padding-top: 5%;
+}
+
+/*@media screen and (max-width: 1000px){
+
+}*/
+
+.project-title{
+  text-align: center;
+  justify-content: center;
+  padding: 1rem 1rem;
+  text-decoration: underline;
+}
+.project-scroll{
+  max-width: 300px;
+  width: 100%;
+  padding: 1rem 1rem;
+  padding-left: 3%;
+  font-size: .8rem;
+}
+
+.flappybird-img{
+  max-width: 300px;
+  width: 100%;
+  padding: 1rem 1rem;
+  padding-left: 3%;
+}
+.project-captions{
+  padding: 0 1rem;
+}
