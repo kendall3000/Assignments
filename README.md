@@ -6,48 +6,39 @@ Welcome to my coursework repository, an extensive archive showcasing my journey 
 
 This repository features coursework and projects from the following courses:
 
-- Database Systems
-- Programming Languages
-- Operating Systems
-- Artificial Intelligence
-- Data Structures
-- Web Technologies
-- Computer Programming 2
+- **Database Systems**
+- **Programming Languages**
+- **Operating Systems**
+- **Artificial Intelligence**
+- **Data Structures**
+- **Web Technologies**
+- **Computer Programming 2**
 
 ## Key Skills Spotlight
 
-Take a look at my top 9 acquired skills, honed through coursework and hands-on projects:
+Take a look at my top 9 acquired hard technical skills, honed through coursework and hands-on projects:
 
-1. **Problem Solving & Critical Thinking:**
-   Mastering the art of problem-solving by dissecting complex issues, devising innovative solutions, and critically evaluating outcomes.
+1. **Problem Solving & Algorithm Design**: Proficiency in decomposing complex problems, designing efficient algorithms, and implementing robust solutions across various domains.
 
-2. **Communication & Collaboration:**
-   Effectively conveying ideas and collaborating with peers through clear communication, fostering teamwork and collective success.
+2. **Programming Proficiency**: Mastery in multiple programming languages including Java, Python, and JavaScript, with a focus on object-oriented design, functional programming, and asynchronous programming paradigms.
 
-3. **Software Engineering Practices:**
-   Adopting industry-standard software engineering practices, including agile methodologies, test-driven development, and continuous integration.
+3. **Database Management**: Expertise in designing, implementing, and optimizing relational database systems using SQL, including schema design, indexing strategies, and query optimization.
 
-4. **Cybersecurity Awareness:**
-   Understanding cybersecurity principles and best practices to safeguard systems and data from threats and vulnerabilities.
+4. **Operating Systems Fundamentals**: In-depth understanding of operating system principles, including process management, memory allocation, file systems, and concurrency control.
 
-5. **Data Visualization & Interpretation:**
-   Utilizing data visualization tools and techniques to present complex datasets in a visually compelling manner and derive actionable insights.
+5. **Artificial Intelligence Techniques**: Hands-on experience with AI algorithms and techniques such as search algorithms, machine learning, neural networks, and natural language processing.
 
-6. **Web Development Proficiency:**
-   Creating dynamic and responsive web applications using modern frameworks and technologies, ensuring seamless user experiences.
+6. **Data Structures Optimization**: Proficiency in implementing and optimizing data structures such as arrays, linked lists, trees, and graphs for efficient storage and retrieval of information.
 
-7. **Cloud Computing & DevOps:**
-   Harnessing the power of cloud platforms and DevOps practices to deploy, scale, and manage applications efficiently and reliably.
+7. **Web Development Technologies**: Advanced knowledge of front-end and back-end web development technologies including HTML, CSS, JavaScript, Node.js, React, and Express.js, with a focus on creating scalable and interactive web applications.
 
-8. **Algorithm Optimization:**
-   Proficiency in analyzing and optimizing algorithms to improve efficiency, scalability, and performance.
+8. **Cloud Computing & Deployment**: Experience in deploying and managing applications on cloud platforms such as AWS and Azure, utilizing services like EC2, S3, and Lambda for scalable and cost-effective solutions.
 
-9. **Distributed Systems:**
-   Understanding the principles and architectures of distributed systems, including scalability, fault tolerance, and consistency.
+9. **Software Engineering Best Practices**: Application of industry-standard software engineering practices including version control (Git), code review, unit testing, and continuous integration/continuous deployment (CI/CD) pipelines for ensuring high-quality software development.
 
 ## Explore Further
 
-Delve into this repository to gain insights into my academic and technical journey in computer science, and witness firsthand the breadth of skills I've acquired along the way.
+Delve into this repository to gain insights into my academic and technical journey in computer science, and witness firsthand the breadth of hard technical skills I've acquired along the way.
 
 ## License Details
 
