@@ -11,6 +11,7 @@ This repository features coursework and projects from the following courses:
 - Operating Systems
 - Artificial Intelligence
 - Data Structures
+- Web Technologies
 - Computer Programming 2
 
 ## Key Skills Spotlight
